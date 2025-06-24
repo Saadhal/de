@@ -1,0 +1,101 @@
+.calendar-page {
+  padding: 1.2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px);
+}
+
+.calendar-page h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 0.25rem;
+}
+
+.appointments-table-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.appointments-table th,
+.appointments-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.appointments-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #2c3e50;
+  white-space: nowrap;
+}
+
+.appointments-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.appointments-table th.sortable:hover {
+  background-color: #e9ecef;
+}
+
+.appointments-table th.sortable svg {
+  margin-left: 4px;
+  vertical-align: middle;
+  font-size: 1.2rem;
+}
+
+.appointments-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status.confirmé {
+  background-color: #e3fcef;
+  color: #00a854;
+}
+
+.status.en-attente {
+  background-color: #fff7e6;
+  color: #fa8c16;
+}
+
+.status.annulé {
+  background-color: #fff1f0;
+  color: #f5222d;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .calendar-page {
+    padding: 1rem;
+  }
+
+  .appointments-table th,
+  .appointments-table td {
+    padding: 0.75rem;
+  }
+}
