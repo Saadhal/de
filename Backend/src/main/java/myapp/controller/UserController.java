@@ -35,6 +35,11 @@ public class UserController {
                 .status(HttpStatus.CONFLICT)
                 .body("Login déjà utilisé !");
         }
+        if (userService.emailExists(user.getEmail())) {
+            return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body("Email déjà utilisé !");
+        }
         User createdUser = userService.createUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
@@ -52,6 +57,9 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Login déjà utilisé !");
         }
 
+        if (!existingUser.getEmail().equals(user.getEmail()) && userService.emailExists(user.getEmail())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Email déjà utilisé !");
+        }
         existingUser.setLogin(user.getLogin());
         existingUser.setPassword(user.getPassword());
 

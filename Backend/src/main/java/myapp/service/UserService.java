@@ -38,6 +38,10 @@ public class UserService {
         return userRepository.findByLogin(login) != null;
     }
 
+    public boolean emailExists(String email) {
+        return userRepository.findByEmail(email) != null;
+    }
+
     public User authenticate(String login, String password) {
         User user = userRepository.findByLogin(login);
         if (user == null || !user.getPassword().equals(password)) {
@@ -45,4 +49,13 @@ public class UserService {
         }
         return user;
     }
+
+    public User getUserByLogin(String login) {
+        return userRepository.findByLogin(login);
+    }
+
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
 }
